@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Grip
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: glove_low
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandIndex1
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandIndex1/Hand
+      Capture:LeftHandIndex2
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandIndex1/Hand
+      Capture:LeftHandIndex2/Hand Capture:LeftHandIndex3
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandIndex1/Hand
+      Capture:LeftHandIndex2/Hand Capture:LeftHandIndex3/Hand Capture:LeftHandIndex4
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandMiddle1
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandMiddle1/Hand
+      Capture:LeftHandMiddle2
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandMiddle1/Hand
+      Capture:LeftHandMiddle2/Hand Capture:LeftHandMiddle3
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandMiddle1/Hand
+      Capture:LeftHandMiddle2/Hand Capture:LeftHandMiddle3/Hand Capture:LeftHandMiddle4
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandPinky1
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandPinky1/Hand
+      Capture:LeftHandPinky2
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandPinky1/Hand
+      Capture:LeftHandPinky2/Hand Capture:LeftHandPinky3
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandPinky1/Hand
+      Capture:LeftHandPinky2/Hand Capture:LeftHandPinky3/Hand Capture:LeftHandPinky4
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandRing1
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandRing1/Hand
+      Capture:LeftHandRing2
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandRing1/Hand
+      Capture:LeftHandRing2/Hand Capture:LeftHandRing3
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandRing1/Hand
+      Capture:LeftHandRing2/Hand Capture:LeftHandRing3/Hand Capture:LeftHandRing4
+    m_Weight: 1
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandThumb1
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandThumb1/Hand
+      Capture:LeftHandThumb2
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandThumb1/Hand
+      Capture:LeftHandThumb2/Hand Capture:LeftHandThumb3
+    m_Weight: 0
+  - m_Path: Hand Capture:LeftForeArm/Hand Capture:LeftHand/Hand Capture:LeftHandThumb1/Hand
+      Capture:LeftHandThumb2/Hand Capture:LeftHandThumb3/Hand Capture:LeftHandThumb4
+    m_Weight: 0
