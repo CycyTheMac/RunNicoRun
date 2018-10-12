@@ -64,8 +64,8 @@ public class MoveTwo : MonoBehaviour {
             tagRayInfoBack = null;
         }
 
-        Debug.Log("Devant: " + tagRayInfoForward);
-        Debug.Log("Derriere: " + tagRayInfoBack);
+        //Debug.Log("Devant: " + tagRayInfoForward);
+        //Debug.Log("Derriere: " + tagRayInfoBack);
 
         //Deplacement là où on regarde par mini-téléportation, s'il n'y a pas d'obstacle. Plus la vitesse est grande, plus on est téléporté loin.
         if (Input.GetAxis("Vertical") > 0.5f && onMove == false && tagRayInfoForward != "NonTraversable")
