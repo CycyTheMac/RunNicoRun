@@ -36,11 +36,5 @@ public abstract class Fire : MonoBehaviour {
 
 }
 
-public class OvrFire : Fire
-{
-    public override bool input()
-    {
-        return OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger);
-    }
-}
+
 
