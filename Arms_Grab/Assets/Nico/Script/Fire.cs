@@ -30,7 +30,9 @@ public abstract class Fire : MonoBehaviour {
 
     private void fire()
     {
-        m_bullet = Instantiate(m_bullet, m_origine.position, m_origine.rotation);
+       GameObject l_obj=Instantiate(m_bullet, m_origine.position, m_origine.rotation);
+        BulletController l_bullet= l_obj.GetComponent<BulletController>();
+        l_bullet.initialise();
     }
 
 
