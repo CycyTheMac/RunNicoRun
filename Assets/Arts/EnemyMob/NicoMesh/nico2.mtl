@@ -1,0 +1,10 @@
+# MTL
+
+newmtl Couche_1_mtl
+	map_Kd nico2_Couche_1.png
+
+
+newmtl untitled_1_mtl
+	map_Kd nico2_untitled_1.png
+
+
