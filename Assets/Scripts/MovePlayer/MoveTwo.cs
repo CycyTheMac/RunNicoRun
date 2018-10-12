@@ -30,24 +30,50 @@ public class MoveTwo : MonoBehaviour {
     bool hasHitForward;
     bool hasHitBack;
 
+
+    public float height = 1.7f;
+
+        //Dans Unity, ajouter le tag "NonTraversable" à tous les objets qu'on ne peut pas traverser.
+    string tagRayInfoForward;
+    string tagRayInfoBack;
+
     // Update is called once per frame
     void Update () {
 
         //On regarde s'il n'y a pas d'obstacle devant nous.
         myRayForward = new Ray(transform.position, centerEye.forward);
         hasHitForward = Physics.Raycast(transform.position, centerEye.forward, out hitInfoForward, distance);
-
+        if (hasHitForward)
+        {
+            tagRayInfoForward = hitInfoForward.transform.tag;
+        }
+        else
+        {
+            tagRayInfoForward = null;
+        }
+ 
         //On regarde s'il n'y a pas d'obstacle derrière nous.
         myRayBack = new Ray(transform.position, -centerEye.forward);
         hasHitBack = Physics.Raycast(transform.position, -centerEye.forward, out hitInfoBack, distance / 2);
+        if (hasHitBack)
+        {
+            tagRayInfoBack = hitInfoBack.transform.tag;
+        }
+        else
+        {
+            tagRayInfoBack = null;
+        }
+
+        Debug.Log("Devant: " + tagRayInfoForward);
+        Debug.Log("Derriere: " + tagRayInfoBack);
 
         //Deplacement là où on regarde par mini-téléportation, s'il n'y a pas d'obstacle. Plus la vitesse est grande, plus on est téléporté loin.
-        if (Input.GetAxis("Vertical") > 0.5f && onMove == false && hasHitForward == false)
+        if (Input.GetAxis("Vertical") > 0.5f && onMove == false && tagRayInfoForward != "NonTraversable")
         {
             onMove = true;
             TeleportForward();
         }
-        else if (Input.GetAxis("Vertical") < -0.5f && onMove == false && hasHitBack == false)
+        else if (Input.GetAxis("Vertical") < -0.5f && onMove == false && tagRayInfoBack != "NonTraversable")
         {
             onMove = true;
             Vector3 yZero = centerEye.forward;
@@ -57,22 +83,28 @@ public class MoveTwo : MonoBehaviour {
 
         //Si il y a un obstacle.
 
-        else if (Input.GetAxis("Vertical") > 0.5f && onMove == false && hasHitForward == true)
+        else if (Input.GetAxis("Vertical") > 0.5f && onMove == false && tagRayInfoForward == "NonTraversable")
         {
             onMove = true;
                 //On recupère la position de l'object avec lequel on entre en collision, que l'on soustrait de notre position actuelle, pour avoir un vecteur direction qui va à l'opposer du mur.
             Vector3 directionHitToPlayer = GetPositionPlayer() - hitInfoForward.point;
                 //On normalise la direction pour ramener le vecteur à une longueur de 1.
             Vector3 directionHitToPlayerNormalized = directionHitToPlayer.normalized;
-                //Debug.DrawLine(hitInfoForward.point, hitInfoForward.point + directionHitToPlayerNormalized, Color.red, 15);
+                Debug.DrawLine(hitInfoForward.point, hitInfoForward.point + directionHitToPlayerNormalized, Color.red, 15);
                 //On récupère la distance séparant le "milieu" du joueur avec un point placé à l'avant (son ventre par exemple).
             float epaisseurJoueur = Vector3.Distance(transform.position, ForwardPoint.transform.position);
                 //On multiplie la direction par la distance obtenue au-dessus pour obtenir un vecteur d'une longueur adéquate, afin que le joueur ne traverse pas l'obstacle, et qu'il ne se téléporte pas dedans. 
             Vector3 directionAvecEpaisseur = directionHitToPlayerNormalized * epaisseurJoueur;
                 //On téléporte le joueur juste devant le mur.
             transform.position = hitInfoForward.point + directionAvecEpaisseur;
+            DebugDraw.Cross(hitInfoForward.point,Quaternion.identity, Color.red, 15);
+            Vector3 v = transform.position;
+            v.y = height;
+            transform.position = v;
+
+
         }
-        else if (Input.GetAxis("Vertical") < -0.5f && onMove == false && hasHitBack == true)
+        else if (Input.GetAxis("Vertical") < -0.5f && onMove == false && tagRayInfoBack == "NonTraversable")
         {
             onMove = true;
             Vector3 directionHitToPlayer = GetPositionPlayer() - hitInfoBack.point;
@@ -115,6 +147,9 @@ public class MoveTwo : MonoBehaviour {
     {
         Vector3 directionTeleportation = TakeDirectionOfTeleport();
         transform.Translate(directionTeleportation * distance, Space.World);
+        Vector3 v = transform.position;
+        v.y = height;
+        transform.position = v;
     }
 
     private Vector3 TakeDirectionOfTeleport()

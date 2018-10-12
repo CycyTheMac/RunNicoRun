@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pickupAble
   - NonTraversable
+  - keypa
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - keypad
   - 
   - 
   - 

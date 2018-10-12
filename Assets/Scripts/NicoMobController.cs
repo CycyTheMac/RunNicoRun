@@ -10,11 +10,10 @@ public class NicoMobController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<NavMeshAgent>().SetDestination(target.position);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        GetComponent<NavMeshAgent>().SetDestination(target.position);
+    }
 }
