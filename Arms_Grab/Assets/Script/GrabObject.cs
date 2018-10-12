@@ -6,7 +6,8 @@ public abstract class GrabObject : MonoBehaviour {
 
     public bool m_isTrigger;
     private GameObject m_objet;
-    
+    [SerializeField]
+    private Transform m_Take;
 
     
 
@@ -34,12 +35,14 @@ public abstract class GrabObject : MonoBehaviour {
         {
             m_objet = other.gameObject;
         }
-        if (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger))
+        if (pick())
         {
             m_isTrigger = true;
         }
-        
+
     }
+
+    protected abstract bool pick();
 
     //private void OnTriggerExit(Collider other)
     //{
@@ -52,19 +55,22 @@ public abstract class GrabObject : MonoBehaviour {
 
         if (IsDragging())
         {
-            m_objet.transform.parent = transform;
+            m_Take.position = transform.position;
+            m_Take.rotation = transform.rotation;
             m_objet.GetComponent<Collider>().isTrigger = true;
             m_objet.GetComponent<Rigidbody>().isKinematic = true;
         }
-        else if (OVRInput.GetUp(OVRInput.RawButton.RHandTrigger))
+        else if (!IsDragging())
         {
-            m_objet.transform.parent = null;
             m_objet.GetComponent<Collider>().isTrigger = false;
             m_objet.GetComponent<Rigidbody>().isKinematic = false;
             m_isTrigger = false;
 
         }
     }
+
+  
+    
 
     protected abstract bool IsDragging();
 }
@@ -75,5 +81,22 @@ public class GrabObjectDefaultExample : GrabObject
     protected override bool IsDragging()
     {
         return Input.GetKey(m_keyToGrab);
+    }
+
+    protected override bool pick()
+    {
+        throw new System.NotImplementedException();
+    }
+}
+public class GrabOVR : GrabObject
+{
+    protected override bool IsDragging()
+    {
+        return OVRInput.Get(OVRInput.RawButton.RHandTrigger);
+    }
+
+    protected override bool pick()
+    {
+        return  OVRInput.Get(OVRInput.Button.SecondaryHandTrigger);
     }
 }
