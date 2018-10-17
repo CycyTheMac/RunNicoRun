@@ -85,7 +85,7 @@ public class KeypadController : MonoBehaviour {
 
         if(doorOpen)
         {
-            var newRotation = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0.0f, -90.0f, 0.0f), Time.deltaTime * 250);
+            var newRotation = Quaternion.RotateTowards(doorHinge.rotation, Quaternion.Euler(0.0f, 0.0f, 0.0f), Time.deltaTime * 250);
             doorHinge.rotation = newRotation;
         }
     }

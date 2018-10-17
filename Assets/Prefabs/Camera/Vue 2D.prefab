@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4477525018453292}
   - component: {fileID: 20882610917525886}
   - component: {fileID: 124157597544999982}
-  - component: {fileID: 81756359736909602}
   m_Layer: 0
   m_Name: Vue 2D
   m_TagString: MainCamera
@@ -36,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1528796767822318}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.5, y: 58.9, z: 16.2}
+  m_LocalPosition: {x: 18.43, y: 58.9, z: 17.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,13 +77,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &81756359736909602
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1528796767822318}
-  m_Enabled: 1
 --- !u!124 &124157597544999982
 Behaviour:
   m_ObjectHideFlags: 1

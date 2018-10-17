@@ -9,6 +9,12 @@ public abstract class GrabObject : MonoBehaviour {
     [SerializeField]
     private Transform m_Take;
 
+    private void Awake() {
+        if (!m_Take) {
+            m_Take = GameObject.FindObjectOfType<OvrFire>().transform;
+        }
+    }
+
     void Update () {
         //RaycastHit l_hit;
 
@@ -47,7 +53,7 @@ public abstract class GrabObject : MonoBehaviour {
         if (IsDragging())
         {
             m_objet.transform.parent =m_Take;
-            m_Take.position = transform.position;
+            m_Take.position = transform.position + new Vector3(0, 0.1f, 0);
             m_Take.rotation = transform.rotation;
             m_objet.GetComponent<Collider>().isTrigger = true;
             m_objet.GetComponent<Rigidbody>().isKinematic = true;

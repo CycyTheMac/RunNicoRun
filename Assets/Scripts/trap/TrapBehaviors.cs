@@ -37,7 +37,7 @@ public class TrapBehaviors : MonoBehaviour {
         yield return new WaitForSeconds(l_time);
         m_lutin.speed = m_lutin.speed * 2;
     }
-    public Transform debugBall;
+
     private void Respawn()
     {
         //Debug.Log("Respawning");

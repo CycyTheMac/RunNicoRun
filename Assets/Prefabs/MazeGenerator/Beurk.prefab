@@ -145,6 +145,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4446615558002652}
+  - component: {fileID: 65238788874492678}
   m_Layer: 0
   m_Name: Beurk
   m_TagString: Untagged
@@ -1061,6 +1062,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609360759955926}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65238788874492678
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1534165878913002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 3, z: 3}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!65 &65757526080406776
 BoxCollider:
   m_ObjectHideFlags: 1

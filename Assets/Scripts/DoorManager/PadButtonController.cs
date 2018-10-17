@@ -10,13 +10,27 @@ public class PadButtonController : MonoBehaviour {
     public LayerMask m_layersAllowed;
     public float timeHighlight = 1f;
     public float timeSet = 1f;
+    public bool push = false;
+    public float timerPush = 0f;
+    public float timeToWait = 10f;
 
     public Color m_blinkColor= Color.red;
     public Color m_defaultColor= Color.white;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        keypad.AddNumber(number);
+    private void OnTriggerEnter(Collider other) {
+        if (timerPush <= 0) {
+            keypad.AddNumber(number);
+            push = true;
+            timerPush = timeToWait;
+
+            while (push) {
+                timerPush -= Time.deltaTime;
+                if (timerPush <= 0) {
+                    push = false;
+                }
+            }
+            
+        }
     }
 
     public void OnMouseDown()
